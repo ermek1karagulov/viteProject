@@ -1,10 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { actions } from "../favorites/favorites.slice";
 import { useActions } from "../../hooks/useActions";
+import { useFavorites } from "../../hooks/useFAvorites";
 
 function ReacipeItem({ recipe }) {
-  const { favorites } = useSelector((state) => state);
+  const { favorites } = useFavorites();
   const { togglefavorites } = useActions();
 
   const isExists = favorites.some((r) => r.id === recipe.id);
